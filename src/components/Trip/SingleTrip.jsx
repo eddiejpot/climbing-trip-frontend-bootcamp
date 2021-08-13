@@ -13,15 +13,17 @@ import { isLoggedInContext } from '../../Context/isLoggedIn.jsx';
 /* =================================================================== */
 /* ============================================================== MAIN */
 /* =================================================================== */
-export default function AllTrips() {
+export default function SingleTrip() {
   // On page load. If user is not logged in, route to login page
   const { isLoggedIn } = useContext(isLoggedInContext);
   const history = useHistory();
   if (!isLoggedIn) {
+    console.log(isLoggedIn);
+    console.log('check');
     history.push('/');
   }
   // State Management
-
+  console.log('this ran');
   // On page load
   useEffect(() => {
 
@@ -30,8 +32,8 @@ export default function AllTrips() {
   /* =========================================================== RENDER */
   return (
     <>
-      <h1>ALL TRIPS</h1>
-      <p>To do:  Trips Table Component</p>
+      <h1>SINGLE TRIP</h1>
+      <p>To do: Route Table Component</p>
     </>
   );
 }

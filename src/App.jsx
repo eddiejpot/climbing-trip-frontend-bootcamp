@@ -1,40 +1,34 @@
 /* =================================================================== */
-/* =========================================================== IMPORTS */
-/* =================================================================== */
+/*= ========================================================== IMPORTS */
+/*= ================================================================== */
 import './App.css';
-import React, { useEffect, useState } from 'react';
-import { getCookie } from './util/cookie.mjs';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
 import LoginSignUp from './components/LoginSignUp/LoginSignUp.jsx';
-import Trip from './components/Trip/AllTrips.jsx';
+import AllTrips from './components/Trip/AllTrips.jsx';
+import SingleTrip from './components/Trip/SingleTrip.jsx';
+
+/* =========================================================== CONTEXT */
+import { IsLoggedInProvider } from './Context/isLoggedIn.jsx';
 
 /* =================================================================== */
 /* ============================================================== MAIN */
 /* =================================================================== */
 export default function App() {
-  // State Management
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  // On page load
-  useEffect(() => {
-    // Check if user is logged in, if logged in change login state to true
-    if (getCookie('userId')) {
-      setIsLoggedIn(() => true);
-    }
-  }, []);
-
   /* =========================================================== RENDER */
-  const ComponentToRender = () => {
-    if (isLoggedIn) {
-      return (
-        <Trip />
-      );
-    }
-    return (
-      <LoginSignUp />
-    );
-  };
-
   return (
-    <ComponentToRender />
+    <Router>
+      <Switch>
+        <IsLoggedInProvider>
+          <Route path="/" exact component={LoginSignUp} />
+          <Route path="/trip" exact component={AllTrips} />
+          <Route path="/trip/:id" exact component={SingleTrip} />
+        </IsLoggedInProvider>
+      </Switch>
+    </Router>
   );
 }

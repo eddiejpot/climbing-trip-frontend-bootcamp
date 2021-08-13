@@ -1,7 +1,7 @@
 /* =================================================================== */
-/* =========================================================== IMPORTS */
-/* =================================================================== */
-import React, { useState } from 'react';
+/*= ========================================================== IMPORTS */
+/*= ================================================================== */
+import React, { useState, useContext } from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -10,14 +10,27 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import { useHistory } from 'react-router-dom';
+import { createCookie } from '../../util/cookie.mjs';
+
+/* =========================================================== CONTEXT */
+import { isLoggedInContext } from '../../Context/isLoggedIn.jsx';
 
 /* =================================================================== */
 /* ============================================================== MAIN */
 /* =================================================================== */
 export default function SignUp() {
+  // On page load. If user is logged in, route to trip page
+  const { isLoggedIn, setIsLoggedIn } = useContext(isLoggedInContext);
+  const history = useHistory();
+  if (isLoggedIn) {
+    history.push('/trip');
+  }
+
   // State Management
   const [isAMember, setIsAMemeber] = useState(true);
 
+  // User Login Or Sign Up
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -26,6 +39,8 @@ export default function SignUp() {
     if (isAMember) {
       // Login
       console.log('Logging In', dataToSend);
+      createCookie('userId', 1);
+      setIsLoggedIn(() => true);
     } else {
       // Sign up
       console.log('Sign Up', dataToSend);
