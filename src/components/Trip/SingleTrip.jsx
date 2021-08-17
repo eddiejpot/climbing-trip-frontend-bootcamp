@@ -8,7 +8,10 @@ import SingleTripTable from './SingleTripTable.jsx';
 
 /* ================================== CONTEXT =============================== */
 
-import { isLoggedInContext } from '../../Context/isLoggedIn.jsx';
+/* =================================================================== */
+/* =========================================================== CONTEXT */
+/* =================================================================== */
+import { isLoggedInContext } from '../../Context/IsLoggedIn.jsx';
 
 /* ================================MAIN==============================  */
 export default function SingleTrip() {

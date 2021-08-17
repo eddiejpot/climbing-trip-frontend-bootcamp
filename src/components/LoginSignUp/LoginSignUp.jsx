@@ -14,7 +14,7 @@ import { useHistory } from 'react-router-dom';
 import { createCookie } from '../../util/cookie.mjs';
 
 /* =========================================================== CONTEXT */
-import { isLoggedInContext } from '../../Context/isLoggedIn.jsx';
+import { isLoggedInContext } from '../../Context/IsLoggedIn.jsx';
 
 /* =================================================================== */
 /* ============================================================== MAIN */
@@ -24,7 +24,7 @@ export default function SignUp() {
   const { isLoggedIn, setIsLoggedIn } = useContext(isLoggedInContext);
   const history = useHistory();
   if (isLoggedIn) {
-    history.push('/trip');
+    history.push('/trips');
   }
 
   // State Management
