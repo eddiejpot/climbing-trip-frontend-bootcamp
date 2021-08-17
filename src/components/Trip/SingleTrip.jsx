@@ -13,6 +13,8 @@ import SingleTripTable from './SingleTripTable.jsx';
 /* =================================================================== */
 import { isLoggedInContext } from '../../Context/IsLoggedIn.jsx';
 
+console.log('single trip file');
+
 /* ================================MAIN==============================  */
 export default function SingleTrip() {
   // local state
