@@ -6,6 +6,7 @@ import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import TripTable from '../Tables/TripTable.jsx';
 import AllTripsNavBar from '../NavBar/AllTripsNavBar.jsx';
+import SingleTripNavBar from '../NavBar/SingleTripNavBar.jsx';
 
 /* =================================================================== */
 /* ================================================ CONTEXT / REDUCERS */
