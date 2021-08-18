@@ -5,7 +5,7 @@ import axios from 'axios';
 import Container from '@material-ui/core/Container';
 import { Grid } from '@material-ui/core';
 import SingleTripTable from './SingleTripTable.jsx';
-
+import SingleTripNavBar from '../NavBar/SingleTripNavBar.jsx';
 /* ================================== CONTEXT =============================== */
 
 /* =================================================================== */
@@ -48,12 +48,15 @@ export default function SingleTrip() {
   /* ==========================RENDER ================================= */
 
   return (
-    <Container sx={{ m: 10 }}>
-      <Grid container spacing={1}>
-        <Grid>ALL ROUTES</Grid>
-        <Grid><button type="button" onClick="do somthing">New Route</button></Grid>
-      </Grid>
-      <SingleTripTable tripRoutes={tripRoutes} />
-    </Container>
+    <>
+      <SingleTripNavBar />
+      <Container sx={{ m: 10 }}>
+        <Grid container spacing={1}>
+          <h1>ALL ROUTES</h1>
+          <Grid><button type="button" onClick="do somthing">New Route</button></Grid>
+        </Grid>
+        <SingleTripTable tripRoutes={tripRoutes} />
+      </Container>
+    </>
   );
 }

@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SingleTripNavBar({ tripName }) {
+export default function SingleTripNavBar() {
   const classes = useStyles();
 
   return (
@@ -24,7 +24,7 @@ export default function SingleTripNavBar({ tripName }) {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            {`Trip : ${tripName}`}
+            Routes
           </Typography>
           <Typography color="inherit">
             Hi User

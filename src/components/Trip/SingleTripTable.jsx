@@ -1,3 +1,7 @@
+/* =================================================================== */
+/* =========================================================== IMPORTS */
+/* =================================================================== */
+
 import React, { useState } from 'react';
 // Drag and Drop context. Droppable to provid or app with droppable area
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
@@ -72,7 +76,6 @@ export default function SingleTripTable(props) {
                     <Grid container spacing={1}>
                       <Grid item xs={8}>{item.name}</Grid>
                       <Grid item xs={2}>
-
                         {item.difficulty}
                       </Grid>
                       <Grid item xs={2}>{(item.isCompleted !== 'null') ? <span>X</span> : <span>✓</span>}</Grid>

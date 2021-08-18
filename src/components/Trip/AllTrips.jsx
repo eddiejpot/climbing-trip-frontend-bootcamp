@@ -6,7 +6,7 @@ import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import TripTable from '../Tables/TripTable.jsx';
 import AllTripsNavBar from '../NavBar/AllTripsNavBar.jsx';
-import SingleTripNavBar from '../NavBar/SingleTripNavBar.jsx';
+import CreateNewTripDialog from '../Modal/CreateNewTripDialog.jsx';
 
 /* =================================================================== */
 /* ================================================ CONTEXT / REDUCERS */
@@ -41,6 +41,7 @@ export default function AllTrips() {
     <>
       <AllTripsNavBar />
       <h1>ALL TRIPS</h1>
+      <CreateNewTripDialog />
       <AllTripProvider>
         <TripTable />
       </AllTripProvider>

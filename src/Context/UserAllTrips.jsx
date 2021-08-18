@@ -77,6 +77,7 @@ export async function loadAllTrips(callbackDispatch) {
   // find no of routes for each trip
   const promises = [];
 
+  // THIS DOESN'T REALLY WORK - gets the data by it later disappears
   const findNumOfRoutes = (index) => {
     const tripId = data.trips[index].id;
     return axios.get(`${BACKEND_URL}/trip/${tripId}`);
@@ -91,7 +92,7 @@ export async function loadAllTrips(callbackDispatch) {
       .then((results) => {
         for (let i = 0; i < results.length; i += 1) {
           const trip = results[i];
-          data.trips[i].numOfRoutes = trip.data.tripRoutes.length;
+          data.trips[i].numRoutes = trip.data.tripRoutes.length;
         }
       })
       .catch((e) => {

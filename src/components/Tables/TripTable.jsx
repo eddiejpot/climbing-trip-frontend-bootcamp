@@ -42,11 +42,10 @@ export default function TripTable() {
 
   const ComponentToRender = () => {
     console.log('TRIPTABLE STATE');
-    console.log(state);
 
     for (let i = 0; i < state.trips.length; i += 1) {
-      console.log(state.trips[i].name);
-      console.log(state.trips[i].numOfRoutes);
+      console.log(state.trips[i]);
+      console.log(state.trips[i].numRoutes);
     }
 
     if (state.trips.length === 0) {
